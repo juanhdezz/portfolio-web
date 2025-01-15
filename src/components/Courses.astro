@@ -1,0 +1,84 @@
+---
+const courses = [
+  {
+    title: "Data Analysis using Python",
+    institution: "IBM",
+    date: "2024",
+    credential: "https://www.credly.com/users/juan-hernandez-sanchez-agesta",
+    image: "/certificates/datapython.png",
+    skills: ["Data Analysis", "Jupyter", "JupyterLab", "Python"]
+  },
+  {
+    title: "Machine Learning for Data Science Projects",
+    institution: "IBM",
+    date: "2024",
+    credential: "https://www.credly.com/users/juan-hernandez-sanchez-agesta",
+    image: "/certificates/mlibmbadge.png",
+    skills: ["Data Modeling", "Hyperparameter Optimization", "Feature Engineering", "Machine Learning", "Data Science"]
+  },
+  {
+    title: "Certificado profesional de gestión de proyectos de Google",
+    institution: "Coursera | Google",
+    date: "2024",
+    credential: "https://coursera.org/verify/professional-cert/ROCDEQFQ0FA1",
+    image: "/certificates/pmcert.png",
+    skills: ["Gestión de proyectos", "Scrum", "Agile", "Artefactos SCRUM", "Planificación de proyectos"]
+  },
+  {
+    title: "SCRUM Foundation Professional Certificate (SFPC)",
+    institution: "Certiprof",
+    date: "2024",
+    credential: "https://www.credly.com/users/juan-hernandez-sanchez-agesta",
+    image: "/certificates/scrumcert.png",
+    skills: ["Scrum", "Agile", "Artefactos SCRUM"]
+  }
+];
+---
+
+<section id="courses" class="py-20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
+      <span class="text-primary">&lt;</span>
+      Education & Certificates
+      <span class="text-primary">/&gt;</span>
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {courses.map((course, index) => (
+        <div
+          class="bg-light/5 dark:bg-dark/50 p-6 rounded-lg border border-primary/20 hover:border-primary/50 transition-all duration-300"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="aspect-video mb-4 overflow-hidden rounded-lg">
+            <img
+              src={course.image}
+              alt={course.title}
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+            />
+          </div>
+          <h3 class="text-xl font-bold mb-2">{course.title}</h3>
+          <p class="text-dark/70 dark:text-light/70 mb-2">{course.institution}</p>
+          <p class="text-primary text-sm mb-4">{course.date}</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            {course.skills.map((skill) => (
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm">
+                {skill}
+              </span>
+            ))}
+          </div>
+          <a
+            href={course.credential}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="text-primary hover:underline inline-flex items-center"
+          >
+            View Certificate
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

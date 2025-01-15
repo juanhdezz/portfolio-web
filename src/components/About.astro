@@ -1,0 +1,54 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="About Me">
+  <section id="about" class="py-20">
+    <div class="container mx-auto px-6">
+      <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
+        <span class="text-primary">&lt;</span>
+        About Me
+        <span class="text-primary">/&gt;</span>
+      </h2>
+      <div class="max-w-2xl mx-auto" data-aos="fade-up">
+        <p class="text-lg mb-6 text-light/80">
+          I have recently completed my studies at the <span class="gradient-text">University of Granada (UGR)</span>, where I gained a solid foundation in both <span class="gradient-text">Computer Engineering</span> and <span class="gradient-text">Business Administration</span> (Double Degree). Throughout my academic journey, I developed a strong passion for technology and a <span class="gradient-text">proactive mindset</span> that drives me to constantly learn and adapt to new challenges.
+        </p>
+        <p class="text-lg mb-6 text-light/80">
+          I am particularly passionate about exploring new technologies and have gained significant experience in <span class="gradient-text">Artificial Intelligence</span> tools, which significantly boost my <span class="gradient-text">productivity</span> and problem-solving capabilities. I believe in leveraging these tools to optimize processes and create innovative solutions.
+        </p>
+        <p class="text-lg mb-6 text-light/80">
+          I am currently seeking career opportunities in a company as a <span class="gradient-text">Software Engineer</span>, <span class="gradient-text">Data Analyst</span>, <span class="gradient-text">Data Scientist</span>, or <span class="gradient-text">Data Engineer</span>. My goal is to develop a promising professional career where I can contribute with my knowledge and skills, while also continuously growing and expanding my expertise in the ever-evolving field of technology.
+        </p>
+        <p class="text-lg mb-6 text-light/80">
+          I am excited about the opportunity to work with a dynamic and forward-thinking team, where I can apply my skills and contribute to meaningful projects.
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+    .gradient-text {
+      background: linear-gradient(45deg, #ff4b2b, #ff8c00, #ff4b2b); /* Rojo a naranja */
+      background-size: 200% 200%;
+      background-position: 0 0;
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+      animation: gradient-animation 3s ease infinite;
+    }
+  
+    @keyframes gradient-animation {
+      0% {
+        background-position: 0 0;
+      }
+      50% {
+        background-position: 100% 100%;
+      }
+      100% {
+        background-position: 0 0;
+      }
+    }
+  </style>
+  

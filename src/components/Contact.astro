@@ -1,0 +1,65 @@
+---
+const emailAddress = "jhernandezsanchezagesta@gmail.com";
+---
+<section id="contact" class="py-20">
+  <div class="container mx-auto px-6">
+    <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
+      <span class="text-primary">&lt;</span>
+      Contact
+      <span class="text-primary">/&gt;</span>
+    </h2>
+    <div class="max-w-2xl mx-auto" data-aos="fade-up">
+      <form 
+        action={`https://formsubmit.co/${emailAddress}`} 
+        method="POST"
+        class="space-y-6"
+      >
+        <!-- Redirigir después del envío -->
+        <input 
+          type="hidden" 
+          name="_next" 
+          value="/"
+        >
+        <!-- Evitar spam -->
+        <input type="hidden" name="_captcha" value="true">
+        
+        <div>
+          <label for="name" class="block text-sm font-medium mb-2">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            class="w-full bg-dark/50 border border-primary/20 rounded-lg px-4 py-2 focus:border-primary focus:outline-none"
+          />
+        </div>
+        <div>
+          <label for="email" class="block text-sm font-medium mb-2">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            class="w-full bg-dark/50 border border-primary/20 rounded-lg px-4 py-2 focus:border-primary focus:outline-none"
+          />
+        </div>
+        <div>
+          <label for="message" class="block text-sm font-medium mb-2">Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="4"
+            required
+            class="w-full bg-dark/50 border border-primary/20 rounded-lg px-4 py-2 focus:border-primary focus:outline-none"
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          class="w-full bg-primary text-dark font-bold py-3 rounded-lg hover:bg-primary/80 transition-colors duration-300"
+        >
+          Send Message
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
