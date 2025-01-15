@@ -27,7 +27,7 @@ export const blogs = [
     readTime: '5 '
   },
   {
-    slug: '',
+    slug: 'comingsoon',
     title: 'Coming soon...',
     description: 'Stay tuned for more content!',
     tags: ['Coming', 'Soon', '...'],
@@ -38,7 +38,7 @@ export const blogs = [
     readTime: ''
   },
   {
-    slug: '',
+    slug: 'comingsoon',
     title: 'Coming soon...',
     description: 'Stay tuned for more content!',
     tags: ['Coming', 'Soon', '...'],
