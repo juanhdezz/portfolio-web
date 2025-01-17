@@ -10,6 +10,12 @@ const navItems = [
 
 ---
 
+<style>
+  #mobile-menu {
+    border: 1px solid red; /* Esto es para verificar si el contenedor existe */
+    background-color: rgba(0, 0, 0, 0.5); /* Añadir un fondo para verificar visibilidad */
+  }
+</style>
 
 <header class="fixed w-full top-0 z-50 bg-light/80 dark:bg-dark/80 backdrop-blur-sm">
   <nav class="container mx-auto px-6 py-4">
@@ -17,42 +23,7 @@ const navItems = [
       <!-- Logo -->
       <a href="#home" class="text-primary text-xl font-bold">JH.dev</a>
 
-      <!-- Menú hamburguesa (visible solo en móvil) -->
-      <button
-        id="menu-toggle"
-        class="lg:hidden p-2 hover:bg-primary/10 rounded-lg transition-colors duration-300"
-        aria-label="Toggle menu"
-        aria-expanded="false"
-      >
-        <svg
-          class="w-6 h-6 menu-open"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          />
-        </svg>
-        <svg
-          class="w-6 h-6 menu-close hidden"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M6 18L18 6M6 6l12 12"
-          />
-        </svg>
-      </button>
-
-      <!-- Navegación y botón de tema -->
+      <!-- Navegación y botón de tema (solo en pantallas grandes) -->
       <div class="hidden lg:flex items-center space-x-8" id="menu-items">
         <ul class="flex lg:items-center flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8">
           {navItems.map((item) => (
@@ -98,27 +69,6 @@ const navItems = [
             />
           </svg>
         </button>
-      </div>
-
-      <!-- Menú móvil (overlay) -->
-      <div
-        id="mobile-menu"
-        class="fixed inset-0 bg-light/95 dark:bg-dark/95 lg:hidden hidden backdrop-blur-sm"
-      >
-        <div class="h-full flex flex-col items-center justify-center space-y-8">
-          <ul class="flex flex-col items-center space-y-6">
-            {navItems.map((item) => (
-              <li>
-                <a
-                  href={item.href}
-                  class="text-xl hover:text-primary transition-colors duration-300"
-                >
-                  {item.name}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </div>
       </div>
     </div>
   </nav>
