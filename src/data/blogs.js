@@ -1,5 +1,32 @@
 export const blogs = [
   {
+    slug: 'third-place-ideascompetition',
+    title: 'Third Place at province Level Ideas Competition 🥉',
+    description: 'Experience and thanks after winning third place in the Ideas Competition.',
+    tags: ['Team Work', 'Innovation', 'Bucadin', 'Software Engineering'],
+    image: '/posts/thirdplace1.jpeg',
+    link: 'https://example.com/react-hooks-guide',
+    content:`
+    
+        Last Wednesday we put the finishing touch to a project we had been working on for months, and I couldn't be more proud of what we have achieved. 🎉
+
+I'm talking about Bucadin, the revolutionary application that, a few months ago, allowed us to win the first UGR competition. 🏆 At that moment, we realized that there was really something powerful in our idea, something with a future. 💡
+
+With that motivation, we decided to continue working, researching and proposing value to the user. As a result, we were invited to participate in the VIII UGR Ideas Competition, a more competitive competition. First we faced the projects of students from the ETSIIT, where we were lucky enough to win and represent our faculty in the final. 🙌
+
+It was an incredible experience that allowed us to take third place 🥉 and see up close the 19 best ideas from the universities of Granada, Ceuta and Melilla. A space where we not only had the opportunity to show our idea, but also to sell it. 💼
+
+This process made me aware of something important: as María José González López said, the biggest barrier to innovation is the fear of failure or shame. 💭 That's why initiatives like this are so valuable: they help us break down all those barriers that limit our potential, our way of seeing the world and understanding real needs. 🔓
+
+Not only in the field of entrepreneurship, but also in terms of personal growth. The lessons learned are priceless. 📚
+
+Thanks to the entire team I've had for their effort, and to UGR Emprendedora for giving us the opportunity to show what we can achieve together.🚀
+        `,
+    
+    date: '2025-02-27',
+    readTime: '5 '
+  },
+  {
     slug: 'ideasfactory-winners',
     title: 'Ideas Factory (by UGR) Winners 🏆',
     description: 'Reflections on the win of the Ideas Factory competition by the University of Granada.',
