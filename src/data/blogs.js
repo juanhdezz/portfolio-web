@@ -1,10 +1,37 @@
 export const blogs = [
   {
+    slug: 'civica-bi-course',
+    title: 'Cívica Business Intelligence, Data Discovery & SQL Course',
+    description: 'Completion of the intensive Business Intelligence, Data Discovery, and SQL course at Cívica — a truly unique learning experience.',
+    tags: ['Business Intelligence', 'Data Discovery', 'SQL', 'Lifelong Learning', 'Data Analytics'],
+    image: '/posts/civica_cert.jpeg', // Change this path to your actual image
+    link: 'https://www.linkedin.com/posts/juan-linkedin-post-id', // Replace with your actual LinkedIn post URL
+    content: `
+  I'm excited to share that I’ve completed the Business Intelligence, Data Discovery, and SQL training at Cívica! 🎉📊
+  
+  From day one, I knew it would be worth it. The positive energy from the instructors, their professionalism, and the passion they brought to every session made this course something truly special 🙌🏽.
+  
+  A huge thank you to Manuel Muñoz Megías, Ana Bosch Fernández, Evaristo Laraño Castaño, Eduardo Laraño Castaño, Antonio Fernández-Valadés Gámez, Francisco Mantell Zamudio, Jose Morales Espínola, and the entire Cívica team for creating such an inspiring experience 🌟.
+  
+  This wasn’t just another course or one of those trendy bootcamps — it was a unique journey that can only be understood by living it. It’s a reflection of Cívica’s culture and a reminder of how impactful great learning environments can be.
+  
+  And of course, I couldn’t end this without mentioning my amazing teammates. Over the past two months, they’ve been a constant source of support, smiles, and motivation — and they’ve become real friends along the way 🤝🏽💪🏽.
+  
+  Another step forward in my journey, and I’m more motivated than ever to keep growing in the world of data. 🚀
+  
+  #BusinessIntelligence #DataDiscovery #SQL #LearningJourney #BI #DataAnalytics
+    `,
+    date: '2025-03-28',
+    readTime: '3'
+  }
+,  
+
+  {
     slug: 'third-place-ideascompetition',
     title: 'Third Place at province Level Ideas Competition 🥉',
     description: 'Experience and thanks after winning third place in the Ideas Competition.',
     tags: ['Team Work', 'Innovation', 'Bucadin', 'Software Engineering'],
-    image: '/posts/thirdplace1.jpeg',
+    image: '/posts/thirdplace.jpeg',
     link: 'https://example.com/react-hooks-guide',
     content:`
     
