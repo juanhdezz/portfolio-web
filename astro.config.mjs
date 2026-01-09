@@ -1,15 +1,12 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import react from '@astrojs/react';
-import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://juanhdezz.github.io',
-  base: '/portfolio-web',
+  site: 'https://juanhdezz.github.io/portfolio-web',
   integrations: [
     tailwind(), 
-    react(),
-    sitemap()
+    react()
   ],
   build: {
     inlineStylesheets: 'auto',

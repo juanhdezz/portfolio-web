@@ -1,0 +1,21 @@
+{
+  "name": "Juan Hernandez - AI Engineer Portfolio",
+  "short_name": "JH Portfolio",
+  "description": "Juan Hernandez - AI Engineer Junior at NTT DATA. Specialized in AI automation, intelligent agents, and data-driven solutions.",
+  "start_url": "/portfolio-web/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#00ff00",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/portfolio-web/favicon.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["portfolio", "technology", "ai", "data-science"],
+  "lang": "en-US",
+  "dir": "ltr"
+}
