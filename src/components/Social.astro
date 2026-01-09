@@ -24,24 +24,24 @@ const socialLinks = [
 ];
 ---
 
-<footer class="py-12 border-t border-primary/20">
+<footer class="py-12 border-t border-primary/20" role="contentinfo">
   <div class="container mx-auto px-6">
     <div class="flex flex-col items-center space-y-8">
-      <div class="flex justify-center space-x-8" data-aos="fade-up">
+      <nav class="flex justify-center space-x-8" data-aos="fade-up" aria-label="Social media links">
         {socialLinks.map((social) => (
           <a
             href={social.url}
             target="_blank"
             rel="noopener noreferrer"
             class="text-dark/70 dark:text-light/70 hover:text-primary transition-colors duration-300 group"
-            aria-label={social.name}
+            aria-label={`Visit Juan Hernandez's ${social.name} profile`}
           >
             <div class="transform group-hover:-translate-y-1 transition-transform duration-300">
               <Fragment set:html={social.icon} />
             </div>
           </a>
         ))}
-      </div>
+      </nav>
       <div class="text-center text-dark/50 dark:text-light/50">
         <p>&copy; {new Date().getFullYear()} Juan Hernandez. All rights reserved.</p>
       </div>

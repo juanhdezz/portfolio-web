@@ -3,41 +3,46 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Home">
-  <section id="home" class="min-h-screen flex items-center justify-center pt-20">
+  <section id="home" class="min-h-screen flex items-center justify-center pt-20" aria-label="Hero section">
     <div class="container mx-auto px-6" data-aos="fade-up">
       <div class="max-w-4xl flex flex-col md:flex-row items-center gap-12">
         <div class="md:w-2/3">
           <h1 class="text-6xl font-bold mb-6">
             Hi, I'm <span class="gradient-text">Juan Hernandez</span>
           </h1>
-          <p class="text-2xl mb-8 opacity-80">
+          <h2 class="text-2xl mb-8 opacity-80">
             <span class="gradient-text">AI Software Engineer</span> | <span class="gradient-text">Data Scientist</span>
-          </p>
+          </h2>
           <p class="text-xl mb-8 opacity-70">
             Graduate with a dual degree in <span class="gradient-text">Computer Engineering</span> and <span class="gradient-text">Business Administration (ADE)</span>, currently pursuing a Master's in <span class="gradient-text">Data Science and Computer Engineering</span> at the <span class="gradient-text">University of Granada (UGR)</span>, specializing in <span class="gradient-text">Data Science and Intelligent Technologies</span>. With hands-on experience in <span class="gradient-text">Data</span> and a strong command of <span class="gradient-text">English (B2 Cambridge)</span>, I focus on developing innovative solutions that combine technical expertise with data-driven insights to create high-quality digital products.
           </p>
-          <div class="flex space-x-4">
+          <nav class="flex space-x-4" aria-label="Call to action buttons">
             <a
               href="#projects"
               class="bg-primary text-dark px-8 py-3 rounded-lg hover:bg-primary/80 transition-colors duration-300"
+              aria-label="View my projects"
             >
               View Projects
             </a>
             <a
               href="#contact"
               class="border border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary/10 transition-colors duration-300"
+              aria-label="Contact me"
             >
               Contact Me
             </a>
-          </div>
+          </nav>
         </div>
         <div class="md:w-1/3 flex justify-center" data-aos="fade-left">
           <div class="relative w-64 h-64">
-            <div class="absolute inset-0 bg-primary/20 rounded-xl -rotate-6"></div>
+            <div class="absolute inset-0 bg-primary/20 rounded-xl -rotate-6" aria-hidden="true"></div>
             <img
               src="/perfil.jpeg"
-              alt="Juan Hernandez"
+              alt="Juan Hernandez - AI Engineer and Data Scientist"
               class="relative z-10 w-full h-full object-cover rounded-xl shadow-xl"
+              loading="eager"
+              width="256"
+              height="256"
             />
           </div>
         </div>

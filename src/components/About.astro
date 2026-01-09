@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="About Me">
-  <section id="about" class="py-20">
+  <section id="about" class="py-20" aria-labelledby="about-heading">
     <div class="container mx-auto px-6">
-      <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
-        <span class="text-primary">&lt;</span>
+      <h2 id="about-heading" class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
+        <span class="text-primary" aria-hidden="true">&lt;</span>
         About Me
-        <span class="text-primary">/&gt;</span>
+        <span class="text-primary" aria-hidden="true">/&gt;</span>
       </h2>
       <div class="max-w-2xl mx-auto" data-aos="fade-up">
         <p class="text-lg mb-6 text-light/80">

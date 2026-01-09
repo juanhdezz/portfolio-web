@@ -1,0 +1,6 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://juanhdezz.github.io/portfolio-web/sitemap-index.xml

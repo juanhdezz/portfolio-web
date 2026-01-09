@@ -4,20 +4,103 @@ import { ViewTransitions } from 'astro:transitions';
 
 interface Props {
   title: string;
+  description?: string;
+  keywords?: string;
+  ogImage?: string;
+  canonicalURL?: string;
 }
 
-const { title } = Astro.props;
+const { 
+  title, 
+  description = "Juan Hernandez - AI Engineer Junior at NTT DATA. Master's student in Data Science and Computer Engineering at UGR. Specialized in AI automation, intelligent agents, and data-driven solutions.",
+  keywords = "Juan Hernandez, AI Engineer, Data Scientist, Software Engineer, NTT DATA, Machine Learning, Artificial Intelligence, Data Science, University of Granada, UGR, AI Automation, Intelligent Agents, Full Stack Developer, Data Engineering",
+  ogImage = "/og-image.jpg",
+  canonicalURL = Astro.url.pathname
+} = Astro.props;
+
+const siteURL = Astro.site || 'https://juanhdezz.github.io/portfolio-web';
+const fullCanonicalURL = new URL(canonicalURL, siteURL).href;
+const fullOgImage = new URL(ogImage, siteURL).href;
 ---
 
 <!doctype html>
 <html lang="en" class="dark">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Juan Hernandez - Full Stack Developer" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.jpg" />
-    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Primary Meta Tags -->
     <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Juan Hernandez" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href={fullCanonicalURL} />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={fullCanonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={fullOgImage} />
+    <meta property="og:site_name" content="Juan Hernandez Portfolio" />
+    <meta property="og:locale" content="en_US" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={fullCanonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={fullOgImage} />
+    <meta name="twitter:creator" content="@juanhdezz" />
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="/favicon.jpg" />
+    <link rel="apple-touch-icon" href="/favicon.jpg" />
+    
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://unpkg.com" />
+    <link rel="dns-prefetch" href="https://unpkg.com" />
+    
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Juan Hernandez",
+      "jobTitle": "AI Engineer Junior",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "NTT DATA"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "University of Granada"
+      },
+      "url": siteURL,
+      "description": description,
+      "image": fullOgImage,
+      "sameAs": [
+        "https://github.com/juanhdezz",
+        "https://linkedin.com/in/juanhdezz"
+      ],
+      "knowsAbout": [
+        "Artificial Intelligence",
+        "Data Science",
+        "Machine Learning",
+        "Software Engineering",
+        "AI Automation",
+        "Intelligent Agents"
+      ]
+    })} />
+    
     <ViewTransitions />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   </head>

@@ -1,40 +1,60 @@
-# Astro Starter Kit: Basics
+# Juan Hernandez - AI Engineer Portfolio 🚀
 
-```sh
-npm create astro@latest -- --template basics
-```
+[![Website](https://img.shields.io/website?url=https%3A%2F%2Fjuanhdezz.github.io%2Fportfolio-web)](https://juanhdezz.github.io/portfolio-web)
+[![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01?logo=astro)](https://astro.build)
+[![Tailwind CSS](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+> Personal portfolio showcasing my work as an AI Engineer Junior at NTT DATA, featuring projects in AI automation, data science, and intelligent systems.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 👨‍💻 About Me
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+AI Engineer Junior at **NTT DATA** specializing in:
+- 🤖 AI-powered solutions and intelligent automation
+- 🧠 AI agents and autonomous systems
+- 📊 Data Science and Machine Learning
+- 💼 Business process optimization with AI
+
+Currently pursuing a Master's in **Data Science and Computer Engineering** at the University of Granada (UGR), with specialization in Data Science and Intelligent Technologies.
+
+## 🌐 Live Site
+
+Visit my portfolio: [https://juanhdezz.github.io/portfolio-web](https://juanhdezz.github.io/portfolio-web)
+
+## ✨ Features
+
+- ⚡ **Fast & Optimized**: Built with Astro for maximum performance
+- 🎨 **Modern Design**: Clean, responsive UI with Tailwind CSS
+- 📱 **Mobile-First**: Fully responsive across all devices
+- � **SEO Optimized**: Meta tags, Open Graph, and structured data
+- ♿ **Accessible**: WCAG compliant with proper ARIA labels
+- 🎭 **Animated**: Smooth animations with AOS
+- 📄 **Auto-generated Sitemap**: For better search engine indexing
 
 ## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
 
 ```text
 /
 ├── public/
-│   └── favicon.svg
+│   ├── certificates/      # Certification images
+│   ├── projects/          # Project screenshots
+│   ├── favicon.jpg
+│   ├── manifest.json      # PWA manifest
+│   └── robots.txt         # SEO robots file
 ├── src/
 │   ├── components/
-│   │   └── Card.astro
+│   │   ├── About.astro
+│   │   ├── Contact.astro
+│   │   ├── Courses.astro
+│   │   ├── Header.astro
+│   │   ├── Hero.astro
+│   │   ├── Projects.astro
+│   │   └── Social.astro
 │   ├── layouts/
-│   │   └── Layout.astro
+│   │   └── Layout.astro   # Main layout with SEO meta tags
 │   └── pages/
-│       └── index.astro
+│       └── index.astro    # Main page
 └── package.json
 ```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 

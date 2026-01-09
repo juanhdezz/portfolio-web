@@ -1,18 +1,19 @@
 ---
 const emailAddress = "jhernandezsanchezagesta@gmail.com";
 ---
-<section id="contact" class="py-20">
+<section id="contact" class="py-20" aria-labelledby="contact-heading">
   <div class="container mx-auto px-6">
-    <h2 class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
-      <span class="text-primary">&lt;</span>
+    <h2 id="contact-heading" class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
+      <span class="text-primary" aria-hidden="true">&lt;</span>
       Contact
-      <span class="text-primary">/&gt;</span>
+      <span class="text-primary" aria-hidden="true">/&gt;</span>
     </h2>
     <div class="max-w-2xl mx-auto" data-aos="fade-up">
       <form 
         action={`https://formsubmit.co/${emailAddress}`} 
         method="POST"
         class="space-y-6"
+        aria-label="Contact form"
       >
         <!-- Redirigir después del envío -->
         <input 
@@ -30,6 +31,7 @@ const emailAddress = "jhernandezsanchezagesta@gmail.com";
             id="name"
             name="name"
             required
+            aria-required="true"
             class="w-full bg-dark/50 border border-primary/20 rounded-lg px-4 py-2 focus:border-primary focus:outline-none"
           />
         </div>
@@ -40,6 +42,7 @@ const emailAddress = "jhernandezsanchezagesta@gmail.com";
             id="email"
             name="email"
             required
+            aria-required="true"
             class="w-full bg-dark/50 border border-primary/20 rounded-lg px-4 py-2 focus:border-primary focus:outline-none"
           />
         </div>
@@ -50,12 +53,14 @@ const emailAddress = "jhernandezsanchezagesta@gmail.com";
             name="message"
             rows="4"
             required
+            aria-required="true"
             class="w-full bg-dark/50 border border-primary/20 rounded-lg px-4 py-2 focus:border-primary focus:outline-none"
           ></textarea>
         </div>
         <button
           type="submit"
           class="w-full bg-primary text-dark font-bold py-3 rounded-lg hover:bg-primary/80 transition-colors duration-300"
+          aria-label="Submit contact form"
         >
           Send Message
         </button>

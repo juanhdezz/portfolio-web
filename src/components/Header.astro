@@ -9,27 +9,21 @@ const navItems = [
 
 ---
 
-<style>
-  #mobile-menu {
-    border: 1px solid red; /* Esto es para verificar si el contenedor existe */
-    background-color: rgba(0, 0, 0, 0.5); /* Añadir un fondo para verificar visibilidad */
-  }
-</style>
-
-<header class="fixed w-full top-0 z-50 bg-dark/80 backdrop-blur-sm">
-  <nav class="container mx-auto px-6 py-4">
+<header class="fixed w-full top-0 z-50 bg-dark/80 backdrop-blur-sm" role="banner">
+  <nav class="container mx-auto px-6 py-4" aria-label="Main navigation">
     <div class="flex justify-between items-center">
       <!-- Logo -->
-      <a href="#home" class="text-primary text-xl font-bold">JH.dev</a>
+      <a href="#home" class="text-primary text-xl font-bold" aria-label="Juan Hernandez - Home">JH.dev</a>
 
       <!-- Navegación -->
       <div class="hidden lg:flex items-center space-x-8" id="menu-items">
-        <ul class="flex lg:items-center flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8">
+        <ul class="flex lg:items-center flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-8" role="list">
           {navItems.map((item) => (
-            <li>
+            <li role="listitem">
               <a
                 href={item.href}
                 class="hover:text-primary transition-colors duration-300"
+                aria-label={`Navigate to ${item.name} section`}
               >
                 {item.name}
               </a>
