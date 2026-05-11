@@ -1,32 +1,48 @@
 ---
 const projects = [
   {
-    title: "Tu Tiempo",
-    description: 'Pronóstico del tiempo en cualquier ciudad que elijas',
-    tech: ['React', 'OpenWeather API', 'JavaScript', 'CSS3'],
-    image: '/projects/tutiempo.jpg',
-    link: 'https://juanhdezz.github.io/app_tiempo/'
-  },
-  {
-    title: 'RecipeScraper',
-    description: 'Aplicación Python de web scrapping de recetas de cocina.',
-    tech: ['Python', 'BeautifulSoup', 'WebScrapping', 'Flask'],
-    image: '/projects/RecipeScrapper.jpg',
-    link: 'https://github.com/juanhdezz/recetas'
-  },
-  {
-    title: 'RoomRadar',
-    description: 'Aplicación web para comparar precios de hoteles de Airbnb y Google Travel.',
-    tech: ['Python', 'Selenium', 'WebScrapping', 'Flask'],
-    image: '/projects/capRoomRadar.jpg',
-    link: 'https://github.com/juanhdezz/RoomRadar-Scrapper'
+    title: 'STEM-Agent',
+    description: 'Agente base auto-especializable para QA y code review automatizado con fases de discovery, design y validation.',
+    focus: 'AI Agents & QA',
+    impact: 'Acelera la revisión de código con métricas objetivas y un flujo de especialización reproducible.',
+    highlights: ['Especialización automática por fases', 'Grafo de estados con LangGraph', 'Evaluación con dataset y métricas'],
+    tech: ['Python', 'LangGraph', 'LLMs', 'Evaluación', 'Testing'],
+    link: 'https://github.com/juanhdezz/stem-agent',
+    featured: true,
+    image: null
   },
   {
     title: 'Fraud Detection in Credit Transactions',
-    description: 'Aplicación basada en machine learning para detectar transacciones fraudulentas.Encuentra el informe del Análisis en mi repo de GitHub 😄',
-    tech: ['Python', 'Jupyter Notebooks', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Seaborn', ' numpy'],
-    image: '/projects/creditfraud.jpg',
-    link: 'https://github.com/juanhdezz/Fraud_detection_analytics_project'
+    description: 'Modelo de machine learning para detectar transacciones fraudulentas con análisis exploratorio y reporte de resultados.',
+    focus: 'Machine Learning & Risk',
+    impact: 'Reduce el fraude y prioriza alertas con modelos supervisados orientados a negocio.',
+    highlights: ['EDA y feature engineering', 'Modelos de clasificación', 'Informe analítico completo'],
+    tech: ['Python', 'Jupyter Notebooks', 'Pandas', 'Scikit-learn', 'Matplotlib', 'Seaborn'],
+    link: 'https://github.com/juanhdezz/Fraud_detection_analytics_project',
+    featured: true,
+    image: '/projects/creditfraud.jpg'
+  },
+  {
+    title: 'BI Cívica - Accidentes de Tráfico',
+    description: 'Dashboard de analítica de datos con KPIs de seguridad vial y exploración interactiva de patrones.',
+    focus: 'Business Intelligence',
+    impact: 'Facilita decisiones basadas en datos con visualizaciones accionables y métricas YoY.',
+    highlights: ['Modelado de datos con DAX', 'Dashboards interactivos', 'KPIs de seguridad vial'],
+    tech: ['Power BI', 'DAX', 'SQL', 'Power Query'],
+    link: 'https://github.com/juanhdezz/BI_Civica_DataAnalyticsProject',
+    featured: false,
+    image: null
+  },
+  {
+    title: 'RoomRadar',
+    description: 'Comparador de precios de hoteles con scraping automatizado y consolidación de datos.',
+    focus: 'Data Pipeline & Scraping',
+    impact: 'Convierte datos de múltiples fuentes en comparativas de precios listas para negocio.',
+    highlights: ['Scraping automatizado', 'Normalización de precios', 'Interfaz web consultable'],
+    tech: ['Python', 'Selenium', 'Web Scraping', 'Flask'],
+    link: 'https://github.com/juanhdezz/RoomRadar-Scrapper',
+    featured: false,
+    image: '/projects/capRoomRadar.jpg'
   }
 ];
 
@@ -34,33 +50,62 @@ const projects = [
 
 <section id="projects" class="py-20" aria-labelledby="projects-heading">
   <div class="container mx-auto px-6">
-    <h2 id="projects-heading" class="text-4xl font-bold mb-12 text-center" data-aos="fade-up">
-      <span class="text-primary" aria-hidden="true">&lt;</span>
-      Projects
-      <span class="text-primary" aria-hidden="true">/&gt;</span>
-    </h2>
+    <div class="max-w-3xl mx-auto text-center mb-12" data-aos="fade-up">
+      <h2 id="projects-heading" class="text-4xl font-bold mb-4">
+        <span class="text-primary" aria-hidden="true">&lt;</span>
+        Proyectos Destacados
+        <span class="text-primary" aria-hidden="true">/&gt;</span>
+      </h2>
+      <p class="text-light/70 text-lg">
+        Selección de proyectos enfocados en IA, data science y soluciones relevantes para empresas. Lo más importante en un vistazo.
+      </p>
+    </div>
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {projects.map((project, index) => (
         <article
-          class="bg-dark/50 p-6 rounded-lg border border-primary/20 hover:border-primary/50 transition-all duration-300"
+          class={`group relative bg-dark/50 p-6 rounded-2xl border border-primary/20 hover:border-primary/50 hover:-translate-y-1 transition-all duration-300 shadow-lg ${
+            project.featured ? 'md:col-span-2' : ''
+          }`}
           data-aos="fade-up"
           data-aos-delay={index * 100}
         >
-          <!-- Imagen del proyecto -->
-          <div class="mb-4">
-            <img
-              src={project.image}
-              alt={`Screenshot of ${project.title} project`}
-              class="w-full h-56 object-cover rounded-lg shadow-lg"
-              loading="lazy"
-              width="400"
-              height="224"
-            />
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs uppercase tracking-widest text-primary/80">{project.focus}</span>
+            {project.featured && (
+              <span class="bg-primary text-dark text-xs font-semibold px-3 py-1 rounded-full">Destacado</span>
+            )}
           </div>
-          <!-- Detalles del proyecto -->
-          <h3 class="text-xl font-bold mb-4">{project.title}</h3>
+          <div class="mb-5">
+            {project.image ? (
+              <img
+                src={project.image}
+                alt={`Screenshot of ${project.title} project`}
+                class="w-full h-56 object-cover rounded-xl shadow-lg"
+                loading="lazy"
+                width="400"
+                height="224"
+              />
+            ) : (
+              <div class="w-full h-56 rounded-xl bg-gradient-to-br from-primary/30 via-dark/60 to-primary/10 flex flex-col justify-end p-5 shadow-lg">
+                <span class="text-xs uppercase tracking-widest text-primary/80">AI / Data</span>
+                <span class="text-2xl font-semibold">{project.title}</span>
+              </div>
+            )}
+          </div>
+          <h3 class="text-2xl font-bold mb-3">{project.title}</h3>
           <p class="text-light/70 mb-4">{project.description}</p>
-          <div class="flex flex-wrap gap-2 mb-4" role="list" aria-label="Technologies used">
+          <p class="text-sm text-light/70 mb-4">
+            <span class="text-primary font-semibold">Impacto:</span> {project.impact}
+          </p>
+          <ul class="space-y-2 mb-5 text-sm text-light/80">
+            {project.highlights.map((highlight) => (
+              <li class="flex items-start gap-2">
+                <span class="text-primary mt-1" aria-hidden="true">•</span>
+                <span>{highlight}</span>
+              </li>
+            ))}
+          </ul>
+          <div class="flex flex-wrap gap-2 mb-5" role="list" aria-label="Tecnologías clave">
             {project.tech.map((tech) => (
               <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm" role="listitem">
                 {tech}
@@ -74,7 +119,7 @@ const projects = [
             rel="noopener noreferrer"
             aria-label={`View ${project.title} project`}
           >
-            View Project 
+            Ver proyecto
             <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
             </svg>
