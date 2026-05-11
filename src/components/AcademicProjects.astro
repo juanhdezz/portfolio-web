@@ -1,0 +1,90 @@
+---
+const academicProjects = [
+  {
+    title: 'Introducción a la Ciencia de Datos (DATCOM)',
+    description: 'Materiales del máster con notebooks, prácticas guiadas y memorias de laboratorio para cimentar fundamentos de data science.',
+    resources: ['Notebooks Jupyter', 'Prácticas evaluables', 'Memorias PDF'],
+    focus: 'Fundamentos DS',
+    tech: ['Python', 'Pandas', 'Scikit-learn'],
+    link: 'https://github.com/juanhdezz/introduccion-ciencia-de-datos-DATCOM-UGR'
+  },
+  {
+    title: 'Series Temporales y Flujos de Datos (DATCOM)',
+    description: 'Colección de notebooks y ejercicios orientados a forecasting y procesamiento de flujos de datos.',
+    resources: ['Notebooks de forecasting', 'Prácticas por temas', 'Memorias técnicas'],
+    focus: 'Forecasting & Streams',
+    tech: ['Series temporales', 'Modelado predictivo', 'Python'],
+    link: 'https://github.com/juanhdezz/SeriesTemporales-FlujosDatos-DATCOM-UGR'
+  },
+  {
+    title: 'Big Data I (DATCOM)',
+    description: 'Repositorio académico con prácticas y materiales sobre procesamiento de datos a gran escala.',
+    resources: ['Prácticas de Big Data', 'Memorias de entrega', 'Material docente'],
+    focus: 'Big Data',
+    tech: ['Data Engineering', 'Procesamiento distribuido', 'ETL'],
+    link: 'https://github.com/juanhdezz/Big-Data-I-DATCOM-UGR'
+  }
+];
+
+---
+
+<section id="academic-projects" class="py-20 bg-dark/30" aria-labelledby="academic-projects-heading">
+  <div class="container mx-auto px-6">
+    <div class="max-w-3xl mx-auto text-center mb-12" data-aos="fade-up">
+      <h2 id="academic-projects-heading" class="text-4xl font-bold mb-4">
+        <span class="text-primary" aria-hidden="true">&lt;</span>
+        Proyectos Académicos DATCOM
+        <span class="text-primary" aria-hidden="true">/&gt;</span>
+      </h2>
+      <p class="text-light/70 text-lg">
+        Selección de repositorios del máster con notebooks, trabajos y memorias en PDF. Recursos clave para ciencia de datos e IA.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {academicProjects.map((project, index) => (
+        <article
+          class="bg-dark/50 p-6 rounded-2xl border border-primary/20 hover:border-primary/50 transition-all duration-300 shadow-lg"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+        >
+          <div class="flex items-center justify-between mb-4">
+            <span class="text-xs uppercase tracking-widest text-primary/80">{project.focus}</span>
+            <span class="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full">Máster</span>
+          </div>
+          <h3 class="text-xl font-bold mb-3">{project.title}</h3>
+          <p class="text-light/70 mb-4">{project.description}</p>
+          <div class="mb-4">
+            <h4 class="text-sm uppercase tracking-wide text-light/60 mb-2">Incluye</h4>
+            <ul class="space-y-2 text-sm text-light/80">
+              {project.resources.map((resource) => (
+                <li class="flex items-start gap-2">
+                  <span class="text-primary mt-1" aria-hidden="true">•</span>
+                  <span>{resource}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="flex flex-wrap gap-2 mb-5" role="list" aria-label="Temáticas principales">
+            {project.tech.map((tech) => (
+              <span class="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm" role="listitem">
+                {tech}
+              </span>
+            ))}
+          </div>
+          <a
+            href={project.link}
+            class="text-primary hover:underline inline-flex items-center"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label={`View ${project.title} repository`}
+          >
+            Ver repositorio
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
