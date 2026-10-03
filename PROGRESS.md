@@ -26,4 +26,6 @@
 
 ## Pendiente (fuera del alcance de esta rama)
 
-- Desplegar en Vercel y, si cambia el dominio, actualizar `SITE_URL`.
+- Cambiar el Framework Preset del proyecto de Vercel de Astro a Next.js (ver README).
+- Probar el preview de la rama `redesign` en Vercel y, si está bien, fusionar en `main` (despliegue automático a producción).
+- Desactivar GitHub Pages del repo: sigue configurado sobre `main` y ya no sirve nada (la URL devuelve 404).

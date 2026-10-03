@@ -55,11 +55,18 @@ Los scripts de Python usan `playwright` (`pip install playwright && playwright i
 
 ## Despliegue en Vercel
 
-1. Importa el repositorio en Vercel. Detecta Next.js automáticamente; no hace falta configuración ni variables de entorno.
-2. Elige la rama (`redesign` para una preview, `main` para producción).
-3. Si el dominio final no es `https://portfolio-web-juanhdezzs-projects.vercel.app`, actualiza `SITE_URL`.
+El proyecto de Vercel ya existe (el mismo que servía la versión en Astro) y está conectado a GitHub:
 
-Con la CLI: `npx vercel` (preview) o `npx vercel --prod`.
+- Push a `main`: despliegue de producción.
+- Push a cualquier otra rama (por ejemplo `redesign`): despliegue de preview con su propia URL.
+
+Como el proyecto venía de Astro, antes del primer despliegue de esta versión revisa en Vercel, **Settings → Build and Deployment**:
+
+1. **Framework Preset:** `Next.js` (si sigue en `Astro`, Vercel buscará la carpeta `dist` y el build fallará).
+2. **Build Command**, **Output Directory** e **Install Command:** sin override (valores por defecto).
+3. **Node.js Version:** 22.x o 24.x.
+
+No hacen falta variables de entorno. Si el dominio de producción no es `https://portfolio-web-juanhdezzs-projects.vercel.app`, actualiza `SITE_URL` en `src/content/site.ts`.
 
 ## Estructura
 
