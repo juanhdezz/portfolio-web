@@ -64,14 +64,14 @@ export function StemDiagram({ locale }: { locale: Locale }) {
       <text x={20} y={244} fontSize={14} fill="var(--ink)" style={svgText}>
         {copy.generic[locale]}
       </text>
-      <rect x={20} y={252} width={bar(0.18)} height={22} rx={3} fill="var(--muted)" opacity={0.45} />
+      <rect className="reveal-bar" x={20} y={252} width={bar(0.18)} height={22} rx={3} fill="var(--muted)" opacity={0.45} />
       <text x={28 + bar(0.18)} y={268} fontSize={14} fontWeight={600} fill="var(--ink)" style={{ ...svgText, fontVariantNumeric: "tabular-nums" }}>
         {num(0.18, locale)}
       </text>
       <text x={20} y={304} fontSize={14} fill="var(--ink)" style={svgText}>
         {copy.specialised[locale]}
       </text>
-      <rect x={20} y={312} width={bar(0.743)} height={22} rx={3} fill="var(--signal)" />
+      <rect className="reveal-bar delay" x={20} y={312} width={bar(0.743)} height={22} rx={3} fill="var(--signal)" />
       <text x={28 + bar(0.743)} y={328} fontSize={14} fontWeight={600} fill="var(--ink)" style={{ ...svgText, fontVariantNumeric: "tabular-nums" }}>
         {num(0.743, locale)}
       </text>
@@ -110,8 +110,8 @@ export function TfmDiagram({ locale }: { locale: Locale }) {
         <text x={612} y={312}>{copy.hypo[locale]}</text>
       </g>
       <path d="M20 110.5H620M20 260.5H620" stroke="var(--rule-strong)" strokeDasharray="3 4" />
-      <path d={glucosePath(20, 500)} fill="none" stroke="var(--signal)" strokeWidth={2.25} strokeLinejoin="round" />
-      <path d={glucosePath(500, 620)} fill="none" stroke="var(--forecast)" strokeWidth={2} strokeDasharray="6 5" />
+      <path className="reveal-draw" pathLength={1} d={glucosePath(20, 500)} fill="none" stroke="var(--signal)" strokeWidth={2.25} strokeLinejoin="round" />
+      <path className="reveal-fade" d={glucosePath(500, 620)} fill="none" stroke="var(--forecast)" strokeWidth={2} strokeDasharray="6 5" />
       <path d="M500.5 20V320" stroke="var(--ink)" strokeOpacity={0.3} />
       <g fontSize={12} style={svgText}>
         <text x={492} y={338} textAnchor="end" fill="var(--signal)">{copy.observed[locale]}</text>

@@ -10,6 +10,7 @@ const sections = ["about", "projects", "experience", "education", "contact"] as 
 export function Header({ locale }: { locale: Locale }) {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [active, setActive] = useState<string | null>(null);
   const otherHref = locale === "es" ? "/en" : "/";
   const otherLang = locale === "es" ? "en" : "es";
 
@@ -18,6 +19,18 @@ export function Header({ locale }: { locale: Locale }) {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const els = sections.map((s) => document.getElementById(s)).filter((el): el is HTMLElement => !!el);
+    const io = new IntersectionObserver(
+      (entries) => {
+        for (const e of entries) if (e.isIntersecting) setActive(e.target.id);
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
   useEffect(() => {
@@ -42,7 +55,11 @@ export function Header({ locale }: { locale: Locale }) {
           <ul className="flex items-center gap-7 text-sm">
             {sections.map((s) => (
               <li key={s}>
-                <a href={`#${s}`} className="link-grow py-1 text-muted hover:text-signal">
+                <a
+                  href={`#${s}`}
+                  aria-current={active === s ? "location" : undefined}
+                  className="link-grow py-1 text-muted hover:text-signal"
+                >
                   {ui.nav[s][locale]}
                 </a>
               </li>

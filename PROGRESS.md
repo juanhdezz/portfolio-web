@@ -13,6 +13,6 @@
 
 ## Pendiente
 
-- [ ] Hito 3: pulido de motion por sección y microinteracciones.
+- [x] Hito 3: motion por sección (revelado de diagramas al entrar en pantalla, scrollspy en la navegación, detalle expandible animado) y verificación automática en `verification/motion_check.py` (14 comprobaciones, incluidas reduced motion y sin JS).
 - [ ] Hito 4: rendimiento y accesibilidad (Lighthouse 90+), README.
 - [ ] Fase 5: verificación completa (build, lint, typecheck, capturas en 3 viewports, enlaces, descarga del CV, reduced motion, Lighthouse, veracidad).

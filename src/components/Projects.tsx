@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { projects, projectsSection, type Locale, type Project } from "@/content/site";
 import { IconArrowUpRight, IconLock, IconPlus } from "./icons";
+import { InView } from "./InView";
 import { StemDiagram, TfmDiagram } from "./ProjectDiagrams";
 import { Section } from "./Section";
 
@@ -20,9 +21,9 @@ function Visual({ project, locale }: { project: Project; locale: Locale }) {
     );
   }
   return (
-    <div className="border border-rule bg-surface p-[clamp(12px,2.5vw,28px)]">
+    <InView className="border border-rule bg-surface p-[clamp(12px,2.5vw,28px)]">
       {project.id === "stem" ? <StemDiagram locale={locale} /> : <TfmDiagram locale={locale} />}
-    </div>
+    </InView>
   );
 }
 

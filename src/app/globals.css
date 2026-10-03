@@ -201,6 +201,11 @@
       color 150ms ease;
   }
 
+  .link-grow[aria-current] {
+    background-size: 100% 1.5px;
+    color: var(--ink);
+  }
+
   .link-grow:hover,
   .link-grow:focus-visible {
     background-size: 100% 1.5px;
@@ -306,6 +311,43 @@
   }
 }
 
+/* Reveal-on-view for project diagrams. Hidden only when JS runs, so no-JS shows everything. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-js] .reveal-bar {
+    transform: scaleX(0);
+    transform-box: fill-box;
+    transform-origin: left center;
+    transition: transform 1100ms var(--ease-out-quint);
+  }
+
+  [data-js] .reveal-bar.delay {
+    transition-delay: 250ms;
+  }
+
+  [data-js] .reveal-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1600ms var(--ease-out-quint);
+  }
+
+  [data-js] .reveal-fade {
+    opacity: 0;
+    transition: opacity 500ms ease 1100ms;
+  }
+
+  [data-inview] .reveal-bar {
+    transform: none;
+  }
+
+  [data-inview] .reveal-draw {
+    stroke-dashoffset: 0;
+  }
+
+  [data-inview] .reveal-fade {
+    opacity: 1;
+  }
+}
+
 @keyframes hero-rise {
   from {
     transform: translateY(105%);
@@ -331,7 +373,9 @@
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
   }
 }
