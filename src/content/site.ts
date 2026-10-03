@@ -103,8 +103,6 @@ export const projectsSection = {
     result: { es: "Resultado", en: "Result" },
     stack: { es: "Stack", en: "Stack" },
     contribution: { es: "Mi parte", en: "My role" },
-    more: { es: "Ver detalle", en: "Show details" },
-    less: { es: "Ocultar detalle", en: "Hide details" },
   },
 };
 

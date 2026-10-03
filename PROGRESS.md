@@ -14,5 +14,5 @@
 ## Pendiente
 
 - [x] Hito 3: motion por sección (revelado de diagramas al entrar en pantalla, scrollspy en la navegación, detalle expandible animado) y verificación automática en `verification/motion_check.py` (14 comprobaciones, incluidas reduced motion y sin JS).
-- [ ] Hito 4: rendimiento y accesibilidad (Lighthouse 90+), README.
+- [x] Hito 4: rendimiento y accesibilidad. Fuente display instanciada y subconjunto (131 KB a 54 KB), nombres accesibles que contienen el texto visible, README con ejecución, verificación y despliegue. Lighthouse 95–100 en rendimiento y 100 en accesibilidad, buenas prácticas y SEO.
 - [ ] Fase 5: verificación completa (build, lint, typecheck, capturas en 3 viewports, enlaces, descarga del CV, reduced motion, Lighthouse, veracidad).

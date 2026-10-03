@@ -47,8 +47,12 @@ export function Header({ locale }: { locale: Locale }) {
       }`}
     >
       <div className="container-x flex h-(--header-h) items-center gap-4">
-        <a href="#top" className="item-title mr-auto text-lg tracking-tight" aria-label={locale === "es" ? "Juan Hernández, inicio" : "Juan Hernández, home"}>
-          JH<span className="text-signal">.</span>
+        <a href="#top" className="item-title mr-auto text-lg tracking-tight">
+          JH
+          <span className="text-signal" aria-hidden="true">
+            .
+          </span>
+          <span className="sr-only">{locale === "es" ? ", Juan Hernández: volver al inicio" : ", Juan Hernández: back to top"}</span>
         </a>
 
         <nav aria-label={locale === "es" ? "Secciones" : "Sections"} className="hidden lg:block">
@@ -76,10 +80,11 @@ export function Header({ locale }: { locale: Locale }) {
             href={otherHref}
             hrefLang={otherLang}
             lang={otherLang}
-            aria-label={ui.langSwitchLabel[locale]}
+            title={ui.langSwitchLabel[locale]}
             className="hidden min-h-11 items-center rounded-full px-3 text-sm font-medium text-muted transition-colors hover:text-ink sm:inline-flex"
           >
             {otherLang.toUpperCase()}
+            <span className="sr-only">, {ui.langSwitch[locale]}</span>
           </a>
           <ThemeToggle label={ui.themeLabel[locale]} />
           <button
