@@ -22,7 +22,7 @@ export function Header({ locale }: { locale: Locale }) {
   }, []);
 
   useEffect(() => {
-    const els = sections.map((s) => document.getElementById(s)).filter((el): el is HTMLElement => !!el);
+    const els = ["top", ...sections].map((s) => document.getElementById(s)).filter((el): el is HTMLElement => !!el);
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) if (e.isIntersecting) setActive(e.target.id);

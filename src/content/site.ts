@@ -114,7 +114,7 @@ export const projects: Project[] = [
       es: "Sala de mando de emergencias de España con agentes de IA.",
       en: "An emergency command centre for Spain, run alongside AI agents.",
     },
-    context: { es: "Octubre 2026, proyecto personal", en: "October 2026, personal project" },
+    context: { es: "Octubre 2026", en: "October 2026" },
     problem: {
       es: "En una emergencia, alertas, llamadas al 112, recursos y situaciones viven en sistemas distintos y el operador tiene que cruzarlos a mano.",
       en: "During an emergency, alerts, 112 calls, resources and incidents live in separate systems, and operators have to cross-reference them by hand.",
@@ -351,7 +351,7 @@ export const certifications = [
 export const achievements = [
   {
     title: "HackSpain 2026",
-    badge: { es: "Seleccionado", en: "Selected" },
+    badge: { es: "Participante", en: "Participant" },
     meta: { es: "Madrid, 18–20 sep 2026", en: "Madrid, 18–20 Sep 2026" },
     text: {
       es: "Uno de los 250 builders técnicos menores de 30 años seleccionados en toda España para un hackathon presencial de 36 horas en la Universidad Politécnica de Madrid: construir productos desde cero en cinco tracks, junto a empresas, startups y fondos de venture capital.",

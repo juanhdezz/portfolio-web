@@ -17,21 +17,25 @@ Decisiones tomadas sin consultar, con su motivo. Ordenadas por fase.
 11. **Hero:** la señal del canvas es una metáfora visual (serie sintética), no datos. No lleva ejes ni valores para no sugerir una métrica.
 12. **Esquema del TFM:** la curva de glucosa del diagrama es ilustrativa y su `aria-label` lo dice; no representa resultados.
 13. **URL canónica:** se usa la URL del CV (`https://portfolio-web-juanhdezzs-projects.vercel.app`). Si el dominio de producción cambia, basta con editar `SITE_URL` en `src/content/site.ts`.
-14. "Google Cloud Certified GenAI Leader" del CV se muestra con su nombre oficial "Generative AI Leader".
+14. **Discrepancias CV/LinkedIn:** el perfil público de LinkedIn muestra datos que no coinciden del todo con el CV (por ejemplo, "Big Data Engineer - Nter Tech Services" frente a "Data Engineer Trainee - NFQ" en el CV). Se usa siempre el CV, como pide el brief.
+15. HackSpain 2026 se etiqueta "Participante", como en el CV, aunque el texto explica que fue una selección.
+16. "Google Cloud Certified GenAI Leader" del CV se muestra con su nombre oficial "Generative AI Leader".
 
 ## Stack
 
-15. **Migración de Astro 4 a Next.js 16 (App Router) + TypeScript + Tailwind v4 + Motion.** El brief lo recomienda, Vercel lo despliega sin configuración y permite OG dinámico, sitemap y robots por convención de archivos. Se elimina todo el código Astro, `dist/` y `node_modules/` que estaban versionados.
-16. **Versiones fijadas con más de 7 días publicadas:** next 16.3.6 y eslint-config-next 16.3.6 (16.3.8 tenía 3 días), motion 13.4.4 (14.0.0 tenía 1 día), TypeScript 5.9.3 (TS 7 es el port nativo y no está claro su soporte en el plugin de Next), eslint 9.
-17. **Sin GSAP, Lenis ni Three.js.** El único efecto que necesita render continuo es una curva 2D: Canvas 2D basta y pesa 0 KB extra. Lenis secuestra el scroll y perjudica accesibilidad; se usa scroll nativo con `scroll-behavior: smooth` solo si no hay `prefers-reduced-motion`.
-18. **i18n con dos root layouts** (`app/(es)` en `/` y `app/(en)/en` en `/en`) en vez de middleware: HTML estático por idioma, `lang` correcto en `<html>`, `hreflang` y canónicas. El cambio de idioma recarga la página (aceptable).
-19. **404 con `global-not-found`** (flag experimental de Next 16) porque con varios root layouts no hay uno común para componer `not-found`.
-20. **Expandir el detalle de proyectos con `<details>` nativo** y `::details-content` + `interpolate-size` para animar la altura: accesible, sin JS; en navegadores sin soporte se abre sin animación.
-21. **Scripts de tema y JSON-LD al inicio de `<body>`** en lugar de `<head>` manual (la regla `no-head-element` de Next lo desaconseja). El script inline bloqueante se ejecuta antes de pintar el contenido, así que no hay parpadeo de tema.
-22. **Vulnerabilidad `braces` en `npm audit`**: viene de `eslint-config-next` (solo dev, lint local). La "solución" de npm es bajar a eslint-config-next 14 (rompe). Se deja y se documenta.
+17. **Migración de Astro 4 a Next.js 16 (App Router) + TypeScript + Tailwind v4 + Motion.** El brief lo recomienda, Vercel lo despliega sin configuración y permite OG dinámico, sitemap y robots por convención de archivos. Se elimina todo el código Astro, `dist/` y `node_modules/` que estaban versionados.
+18. **Versiones fijadas con más de 7 días publicadas:** next 16.3.6 y eslint-config-next 16.3.6 (16.3.8 tenía 3 días), motion 13.4.4 (14.0.0 tenía 1 día), TypeScript 5.9.3 (TS 7 es el port nativo y no está claro su soporte en el plugin de Next), eslint 9.
+19. **Sin GSAP, Lenis ni Three.js.** El único efecto que necesita render continuo es una curva 2D: Canvas 2D basta y pesa 0 KB extra. Lenis secuestra el scroll y perjudica accesibilidad; se usa scroll nativo con `scroll-behavior: smooth` solo si no hay `prefers-reduced-motion`.
+20. **i18n con dos root layouts** (`app/(es)` en `/` y `app/(en)/en` en `/en`) en vez de middleware: HTML estático por idioma, `lang` correcto en `<html>`, `hreflang` y canónicas. El cambio de idioma recarga la página (aceptable).
+21. **404 con `global-not-found`** (flag experimental de Next 16) porque con varios root layouts no hay uno común para componer `not-found`.
+22. **Expandir el detalle de proyectos con `<details>` nativo** y `::details-content` + `interpolate-size` para animar la altura: accesible, sin JS; en navegadores sin soporte se abre sin animación.
+23. **Scripts de tema y JSON-LD al inicio de `<body>`** en lugar de `<head>` manual (la regla `no-head-element` de Next lo desaconseja). El script inline bloqueante se ejecuta antes de pintar el contenido, así que no hay parpadeo de tema.
+24. **Vulnerabilidad `braces` en `npm audit`**: viene de `eslint-config-next` (solo dev, lint local). La "solución" de npm es bajar a eslint-config-next 14 (rompe). Se deja y se documenta.
 
 ## Diseño
 
-23. Concepto "lo que viene después" (serie observada + cono de previsión), paleta azul/ámbar, Bricolage Grotesque + Instrument Sans. Justificación y descartes en `DESIGN.md`.
-24. Sin cursor personalizado ni fade-up por sección: un único momento orquestado (carga del hero) y motion solo en respuesta a acciones o scroll de la trayectoria.
-25. Visuales de proyecto: capturas reales de las demos públicas (generadas con `verification/capture_demos.py`) y diagramas SVG propios para los proyectos sin demo.
+25. Concepto "lo que viene después" (serie observada + cono de previsión), paleta azul/ámbar, Bricolage Grotesque + Instrument Sans. Justificación y descartes en `DESIGN.md`.
+26. Sin cursor personalizado ni fade-up por sección: un único momento orquestado (carga del hero) y motion solo en respuesta a acciones o scroll de la trayectoria.
+27. Visuales de proyecto: capturas reales de las demos públicas (generadas con `verification/capture_demos.py`) y diagramas SVG propios para los proyectos sin demo.
+28. **Bricolage Grotesque auto-hospedada y recortada** (opsz fijo 96, wdth 75–100, wght 600–700, Latin + puntuación española): de 131 KB a 54 KB. La pérdida del eje `opsz` no se nota en los tamaños usados (≥ 20px).
+29. **Motion se mantiene** aunque Lighthouse marque ~87 KB de JS "sin usar" en la carga inicial (incluye React/Next): el rendimiento ya está en 94–100 y el hilo de scroll con muelle es más fluido que una implementación manual.

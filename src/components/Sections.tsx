@@ -195,7 +195,7 @@ export function Footer({ locale }: { locale: Locale }) {
           <p className="item-title text-lg text-ink">{person.name}</p>
           <p className="mt-2 max-w-[60ch]">{footer.built[locale]}</p>
         </div>
-        <div className="flex items-center gap-6">
+        <div className="flex shrink-0 items-center gap-6 whitespace-nowrap">
           <span className="tabular-nums">© 2026</span>
           <a href="#top" className="link-grow inline-flex min-h-11 items-center">
             {footer.top[locale]}
