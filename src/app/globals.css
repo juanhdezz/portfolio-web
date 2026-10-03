@@ -1,0 +1,375 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  --paper: #eef1f5;
+  --surface: #f8f9fb;
+  --ink: #0c1424;
+  --muted: #4f5b70;
+  --rule: #d3d9e3;
+  --rule-strong: #b4bdcb;
+  --signal: #2741d6;
+  --signal-soft: rgb(39 65 214 / 0.1);
+  --forecast: #9a5b00;
+  --forecast-fill: rgb(214 140 20 / 0.16);
+  --on-signal: #ffffff;
+  --gutter: clamp(20px, 4vw, 48px);
+  --container: 1240px;
+  --header-h: 64px;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --paper: #0a1122;
+  --surface: #111a31;
+  --ink: #e6eaf2;
+  --muted: #9aa6bc;
+  --rule: #1f2a44;
+  --rule-strong: #34405e;
+  --signal: #8ea0ff;
+  --signal-soft: rgb(142 160 255 / 0.12);
+  --forecast: #ffb547;
+  --forecast-fill: rgb(255 181 71 / 0.14);
+  --on-signal: #0a1122;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-signal: var(--signal);
+  --color-signal-soft: var(--signal-soft);
+  --color-forecast: var(--forecast);
+  --color-on-signal: var(--on-signal);
+
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-instrument), ui-sans-serif, system-ui, sans-serif;
+
+  --text-xs: 0.8125rem;
+  --text-xs--line-height: 1.45;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.55;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.6;
+  --text-lg: 1.3125rem;
+  --text-lg--line-height: 1.45;
+  --text-xl: 1.625rem;
+  --text-xl--line-height: 1.25;
+  --text-2xl: 2.25rem;
+  --text-2xl--line-height: 1.1;
+  --text-3xl: 3.25rem;
+  --text-3xl--line-height: 1;
+
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@layer base {
+  html {
+    background: var(--paper);
+    color: var(--ink);
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+    scroll-padding-top: calc(var(--header-h) + 16px);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: 1.6;
+    min-height: 100dvh;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition:
+      background-color 200ms ease,
+      border-color 200ms ease,
+      color 200ms ease,
+      fill 200ms ease !important;
+  }
+
+  ::selection {
+    background: var(--signal);
+    color: var(--on-signal);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--signal);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  .container-x {
+    width: min(var(--container), 100% - 2 * var(--gutter));
+    margin-inline: auto;
+  }
+
+  .display-name {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 75;
+    font-weight: 700;
+    font-size: clamp(3.4rem, 12.5vw, 11.5rem);
+    line-height: 0.86;
+    letter-spacing: -0.025em;
+  }
+
+  .hero-name {
+    font-size: min(14rem, calc(min(100vw - 2 * var(--gutter), var(--container)) / 5.25));
+  }
+
+  .hero-line {
+    animation: hero-rise 1000ms var(--ease-out-quint) both;
+  }
+
+  .hero-copy {
+    animation: hero-fade 700ms ease-out 1000ms both;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 85;
+    font-weight: 650;
+    font-size: clamp(2.25rem, 5.5vw, 4.25rem);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
+  }
+
+  .item-title {
+    font-family: var(--font-display);
+    font-variation-settings: "wdth" 90;
+    font-weight: 620;
+    letter-spacing: -0.01em;
+  }
+
+  .link {
+    color: var(--ink);
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 100% 1px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition:
+      background-size 240ms var(--ease-out-quint),
+      color 150ms ease;
+  }
+
+  .link:hover {
+    color: var(--signal);
+  }
+
+  .link-grow {
+    background-image: linear-gradient(var(--signal), var(--signal));
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition:
+      background-size 260ms var(--ease-out-quint),
+      color 150ms ease;
+  }
+
+  .link-grow[aria-current] {
+    background-size: 100% 1.5px;
+    color: var(--ink);
+  }
+
+  .link-grow:hover,
+  .link-grow:focus-visible {
+    background-size: 100% 1.5px;
+    color: var(--signal);
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55em;
+    min-height: 44px;
+    padding: 0 1.15em;
+    border-radius: 999px;
+    font-weight: 560;
+    font-size: var(--text-sm);
+    line-height: 1;
+    white-space: nowrap;
+    transition:
+      background-color 150ms ease,
+      color 150ms ease,
+      border-color 150ms ease,
+      transform 150ms ease;
+  }
+
+  .btn:active {
+    transform: translateY(1px);
+  }
+
+  .btn-primary {
+    background: var(--signal);
+    color: var(--on-signal);
+  }
+
+  .btn-primary:hover {
+    background: color-mix(in oklab, var(--signal) 86%, var(--ink));
+  }
+
+  .btn-ghost {
+    border: 1px solid var(--rule-strong);
+    color: var(--ink);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--ink);
+  }
+
+  .btn .icon-down {
+    transition: transform 220ms var(--ease-out-quint);
+  }
+
+  .btn:hover .icon-down {
+    transform: translateY(2px);
+  }
+
+  .tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .tag {
+    font-size: var(--text-xs);
+    line-height: 1;
+    padding: 0.45em 0.7em;
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    color: var(--muted);
+    background: var(--surface);
+  }
+
+  /* Project details: native <details>, animated height where supported. */
+  .disclosure {
+    interpolate-size: allow-keywords;
+  }
+
+  .disclosure summary {
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .disclosure summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .disclosure .chev {
+    transition: transform 240ms var(--ease-out-quint);
+  }
+
+  .disclosure[open] .chev {
+    transform: rotate(45deg);
+  }
+
+  .disclosure::details-content {
+    block-size: 0;
+    overflow: clip;
+    transition:
+      block-size 380ms var(--ease-out-quint),
+      content-visibility 380ms allow-discrete;
+  }
+
+  .disclosure[open]::details-content {
+    block-size: auto;
+  }
+}
+
+/* Reveal-on-view for project diagrams. Hidden only when JS runs, so no-JS shows everything. */
+@media (prefers-reduced-motion: no-preference) {
+  [data-js] .reveal-bar {
+    transform: scaleX(0);
+    transform-box: fill-box;
+    transform-origin: left center;
+    transition: transform 1100ms var(--ease-out-quint);
+  }
+
+  [data-js] .reveal-bar.delay {
+    transition-delay: 250ms;
+  }
+
+  [data-js] .reveal-draw {
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1600ms var(--ease-out-quint);
+  }
+
+  [data-js] .reveal-fade {
+    opacity: 0;
+    transition: opacity 500ms ease 1100ms;
+  }
+
+  [data-inview] .reveal-bar {
+    transform: none;
+  }
+
+  [data-inview] .reveal-draw {
+    stroke-dashoffset: 0;
+  }
+
+  [data-inview] .reveal-fade {
+    opacity: 1;
+  }
+}
+
+@keyframes hero-rise {
+  from {
+    transform: translateY(105%);
+  }
+  to {
+    transform: none;
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}

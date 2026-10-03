@@ -1,74 +1,87 @@
-# Juan Hernandez - AI Engineer Portfolio 🚀
+# Juan Hernández Sánchez-Agesta — portfolio
 
-[![Website](https://img.shields.io/website?url=https%3A%2F%2Fjuanhdezz.github.io%2Fportfolio-web)](https://juanhdezz.github.io/portfolio-web)
-[![Built with Astro](https://img.shields.io/badge/Built%20with-Astro-FF5D01?logo=astro)](https://astro.build)
-[![Tailwind CSS](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-38B2AC?logo=tailwind-css)](https://tailwindcss.com)
+Portfolio personal de Juan Hernández Sánchez-Agesta, Data Scientist y AI Engineer en Granada. Español en `/` e inglés en `/en`.
 
-> Personal portfolio showcasing my work as an AI Engineer Junior at NTT DATA, featuring projects in AI automation, data science, and intelligent systems.
+La idea visual es una serie temporal con su previsión: en el hero, una curva "observada" llega hasta un "ahora" que mueve el puntero y, a partir de ahí, se abre un cono de previsión. Detalles en [`DESIGN.md`](DESIGN.md).
 
-## 👨‍💻 About Me
+## Stack
 
-AI Engineer Junior at **NTT DATA** specializing in:
-- 🤖 AI-powered solutions and intelligent automation
-- 🧠 AI agents and autonomous systems
-- 📊 Data Science and Machine Learning
-- 💼 Business process optimization with AI
+- [Next.js 16](https://nextjs.org) (App Router, todo prerenderizado como estático) y TypeScript
+- Tailwind CSS v4 con tokens de diseño en variables CSS (tema claro y oscuro)
+- [Motion](https://motion.dev) para el hilo de la trayectoria ligado al scroll; Canvas 2D para el hero
+- Bricolage Grotesque (auto-hospedada, subconjunto) e Instrument Sans (`next/font`)
+- Open Graph generado con `next/og`, sitemap, robots, JSON-LD y 404 global
 
-Currently pursuing a Master's in **Data Science and Computer Engineering** at the University of Granada (UGR), with specialization in Data Science and Intelligent Technologies.
+## Requisitos
 
-## 🌐 Live Site
+Node.js 20.9 o superior (recomendado 22 o 24) y npm.
 
-Visit my portfolio: [https://juanhdezz.github.io/portfolio-web](https://juanhdezz.github.io/portfolio-web)
+## Desarrollo
 
-## ✨ Features
-
-- ⚡ **Fast & Optimized**: Built with Astro for maximum performance
-- 🎨 **Modern Design**: Clean, responsive UI with Tailwind CSS
-- 📱 **Mobile-First**: Fully responsive across all devices
-- � **SEO Optimized**: Meta tags, Open Graph, and structured data
-- ♿ **Accessible**: WCAG compliant with proper ARIA labels
-- 🎭 **Animated**: Smooth animations with AOS
-- 📄 **Auto-generated Sitemap**: For better search engine indexing
-
-## 🚀 Project Structure
-
-```text
-/
-├── public/
-│   ├── certificates/      # Certification images
-│   ├── projects/          # Project screenshots
-│   ├── favicon.jpg
-│   ├── manifest.json      # PWA manifest
-│   └── robots.txt         # SEO robots file
-├── src/
-│   ├── components/
-│   │   ├── About.astro
-│   │   ├── Contact.astro
-│   │   ├── Courses.astro
-│   │   ├── Header.astro
-│   │   ├── Hero.astro
-│   │   ├── Projects.astro
-│   │   └── Social.astro
-│   ├── layouts/
-│   │   └── Layout.astro   # Main layout with SEO meta tags
-│   └── pages/
-│       └── index.astro    # Main page
-└── package.json
+```bash
+npm install
+npm run dev          # http://localhost:3000
 ```
 
-## 🧞 Commands
+Calidad:
 
-All commands are run from the root of the project, from a terminal:
+```bash
+npm run lint         # ESLint (eslint-config-next, core-web-vitals + TypeScript)
+npm run typecheck    # tsc --noEmit
+npm run build        # build de producción
+npm run check        # las tres cosas
+```
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## Contenido
 
-## 👀 Want to learn more?
+Todo el texto vive en [`src/content/site.ts`](src/content/site.ts), con ES y EN en el mismo objeto. La fuente de verdad es [`CONTENT.md`](CONTENT.md), extraído del CV y de los repositorios de GitHub: si un dato no está ahí, no va en la web.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- CV descargable: `public/cv-juan-hernandez-sanchez-agesta.pdf` (copia exacta del `cv.pdf` de la raíz). Para actualizarlo, sustituye ese archivo y regenera la miniatura `public/images/cv-preview.jpg`.
+- Capturas de las demos: `python3 verification/capture_demos.py` (requiere Playwright para Python).
+- Dominio: la URL canónica, el sitemap y Open Graph usan `SITE_URL` en `src/content/site.ts`. Cámbiala si despliegas en otro dominio.
+
+## Verificación
+
+Con un servidor arrancado (`npm run build && npm run start`):
+
+```bash
+python3 verification/shots.py http://localhost:3000 verification/screenshots/run --sections   # 3 viewports, 2 temas, errores de consola, overflow
+python3 verification/motion_check.py http://localhost:3000 verification/screenshots/motion     # animaciones, reduced motion y sin JS
+python3 verification/check_links.py http://localhost:3000                                     # enlaces y descarga del CV
+verification/lighthouse.sh http://localhost:3000                                              # Lighthouse móvil y escritorio, ES y EN
+```
+
+Los scripts de Python usan `playwright` (`pip install playwright && playwright install chromium`).
+
+## Despliegue en Vercel
+
+El proyecto de Vercel ya existe (el mismo que servía la versión en Astro) y está conectado a GitHub:
+
+- Push a `main`: despliegue de producción.
+- Push a cualquier otra rama (por ejemplo `redesign`): despliegue de preview con su propia URL.
+
+Como el proyecto venía de Astro, `vercel.json` fija `"framework": "nextjs"` (sin eso Vercel busca la carpeta `dist` y el build falla). En **Settings → Build and Deployment** conviene además:
+
+1. **Framework Preset:** cambiarlo también a `Next.js` para que el dashboard sea coherente.
+2. **Build Command**, **Output Directory** e **Install Command:** sin override (valores por defecto).
+3. **Node.js Version:** 22.x o 24.x.
+
+No hacen falta variables de entorno. Si el dominio de producción no es `https://portfolio-web-juanhdezzs-projects.vercel.app`, actualiza `SITE_URL` en `src/content/site.ts`.
+
+## Estructura
+
+```text
+src/
+  app/
+    (es)/            layout + página en español (/) y su imagen OG
+    (en)/en/         layout + página en inglés (/en) y su imagen OG
+    global-not-found.tsx, sitemap.ts, robots.ts, icon.svg, globals.css
+  components/        secciones (Hero, Projects, Experience...), SignalCanvas, Header
+  content/site.ts    todo el contenido ES/EN
+  lib/               fuentes, metadatos, generador de OG
+  assets/            fuentes para OG y la display auto-hospedada
+public/              CV, foto, capturas de proyectos
+verification/        scripts de comprobación
+```
+
+Documentación del rediseño: [`CONTENT.md`](CONTENT.md), [`DESIGN.md`](DESIGN.md), [`DECISIONS.md`](DECISIONS.md), [`PROGRESS.md`](PROGRESS.md).
