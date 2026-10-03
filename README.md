@@ -60,9 +60,9 @@ El proyecto de Vercel ya existe (el mismo que servía la versión en Astro) y es
 - Push a `main`: despliegue de producción.
 - Push a cualquier otra rama (por ejemplo `redesign`): despliegue de preview con su propia URL.
 
-Como el proyecto venía de Astro, antes del primer despliegue de esta versión revisa en Vercel, **Settings → Build and Deployment**:
+Como el proyecto venía de Astro, `vercel.json` fija `"framework": "nextjs"` (sin eso Vercel busca la carpeta `dist` y el build falla). En **Settings → Build and Deployment** conviene además:
 
-1. **Framework Preset:** `Next.js` (si sigue en `Astro`, Vercel buscará la carpeta `dist` y el build fallará).
+1. **Framework Preset:** cambiarlo también a `Next.js` para que el dashboard sea coherente.
 2. **Build Command**, **Output Directory** e **Install Command:** sin override (valores por defecto).
 3. **Node.js Version:** 22.x o 24.x.
 

@@ -39,3 +39,4 @@ Decisiones tomadas sin consultar, con su motivo. Ordenadas por fase.
 27. Visuales de proyecto: capturas reales de las demos públicas (generadas con `verification/capture_demos.py`) y diagramas SVG propios para los proyectos sin demo.
 28. **Bricolage Grotesque auto-hospedada y recortada** (opsz fijo 96, wdth 75–100, wght 600–700, Latin + puntuación española): de 131 KB a 54 KB. La pérdida del eje `opsz` no se nota en los tamaños usados (≥ 20px).
 29. **Motion se mantiene** aunque Lighthouse marque ~87 KB de JS "sin usar" en la carga inicial (incluye React/Next): el rendimiento ya está en 94–100 y el hilo de scroll con muelle es más fluido que una implementación manual.
+30. **`vercel.json` con `"framework": "nextjs"`**: el proyecto de Vercel venía con el preset de Astro y el primer preview de `redesign` falló. Fijar el framework en el repo lo corrige sin depender de la configuración del dashboard; el siguiente preview se construyó bien.
